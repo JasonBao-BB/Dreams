@@ -12,6 +12,33 @@ public class QuickSort {
         System.out.println(Arrays.toString(A));
     }
 
+    private int partition2(int[] A, int left, int right) {
+        int pivot = A[left];
+        int l = left+1;
+        int r = right;
+
+        while(l < right) {
+            if(A[l] > pivot && A[r] < pivot){
+                swap(A, A[l], A[r]);
+                l++;
+                r--;
+            }
+            if(A[l] <= pivot) {
+                l++;
+            }
+            if(A[r] >= pivot) {
+                r--;
+            }
+        }
+        swap(A, left, r);
+        return r;
+    }
+
+    private static void swap(int[] A, int left, int right){
+        int t = A[left];
+        A[left] = A[right];
+        A[right] = t;
+    }
     private static int partition(int[] A, int left, int right) {
         int pivotIndex = left;
         int pivot = A[pivotIndex];
