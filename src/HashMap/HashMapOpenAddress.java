@@ -85,7 +85,7 @@ public class HashMapOpenAddress<K, V> {
     public int size() {
         return size;
     }
-    
+
     private void resize() {
         capacity = capacity * 2;
         Node[] old = nodes;
